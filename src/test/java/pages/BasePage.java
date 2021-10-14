@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,7 +42,7 @@ public class BasePage {
         driver.quit();
     }
 
-    //Esto es para localizar cualquier WebElement
+    //Esto es para localizar cualquier WebElement con XPath
     private WebElement Find(String locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
     }
@@ -50,10 +51,16 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
     }
 
-    //Esto es para dar click sobre algún webElement
+    //Esto es para dar click sobre algún webElement sin page factory
     public void clickElement(String locator) {
         Find(locator).click();
     }
+
+    //Esto es para dar click sobre algún webElement con page factory
+    public void clickElementPageFactory(WebElement locator) {
+        locator.click();
+    }
+
 
     public void clickElementCss(String locator) {
         FindCssSelector(locator).click();
@@ -63,6 +70,12 @@ public class BasePage {
     public void write(String locator, String textToWrite) {
         Find(locator).clear();
         Find(locator).sendKeys(textToWrite);
+    }
+
+    //Función para escribir algo en las cajas de texto con pageFactory
+    public void writePageFactory(WebElement locator, String textToWrite) {
+        locator.clear();
+        locator.sendKeys(textToWrite);
     }
 
     public void writeLocatorCss(String locator, String textToWrite) {
@@ -136,6 +149,11 @@ public class BasePage {
     //retornar el dato de un WebElement
     public String textFromElement(String locator) {
         return Find(locator).getText();
+    }
+
+    //retornar el dato de un WebElement con page factory
+    public String textFromElementPageFactory(WebElement locator) {
+        return locator.getText();
     }
 
     // verificar que un webElement esta en la page

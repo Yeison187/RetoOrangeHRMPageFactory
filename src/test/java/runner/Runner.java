@@ -2,7 +2,6 @@ package runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 import pages.BasePage;
@@ -19,7 +18,7 @@ import pages.BasePage;
 public class Runner {
     @AfterClass
     public static void clearDriver() {
-        //BasePage.closeBrowser();
+        BasePage.closeBrowser();
     }
 
 }

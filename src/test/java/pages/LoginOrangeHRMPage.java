@@ -1,14 +1,30 @@
 package pages;
 
-
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.NoSuchElementException;
 
 public class LoginOrangeHRMPage extends BasePage {
-    private String emailLocator = "//input[@id='txtUsername']";
-    private String passLocator = "//input[@id='txtPassword']";
-    private String buttonLoginLocator = "//input[@id='btnLogin']";
-    private String message = "//span[@id='spanMessage']";
-    private String validLogin = "//b[contains(text(),'Dashboard')]";
+    @FindBy(xpath = "//input[@id='txtUsername']")
+    @CacheLookup
+    private WebElement emailLocator;
+
+    @FindBy(xpath = "//input[@id='txtPassword']")
+    @CacheLookup
+    private WebElement passLocator;
+
+    @FindBy(xpath = "//input[@id='btnLogin']")
+    @CacheLookup
+    private WebElement buttonLoginLocator;
+
+    @FindBy(xpath = "//span[@id='spanMessage']")
+    @CacheLookup
+    private WebElement message;
+
+    @FindBy(xpath = "//b[contains(text(),'Dashboard')]")
+    @CacheLookup
+    private WebElement validLogin;
 
     public LoginOrangeHRMPage() {
         super(driver);
@@ -20,7 +36,7 @@ public class LoginOrangeHRMPage extends BasePage {
 
     public void writeEmail(String criteria) throws InterruptedException {
         try {
-            write(emailLocator, criteria);
+            writePageFactory(emailLocator, criteria);
         } catch (NoSuchElementException e) {
             System.out.println("No se encontro el elemento");
             e.printStackTrace();
@@ -28,19 +44,20 @@ public class LoginOrangeHRMPage extends BasePage {
     }
 
     public void writePass(String criteria) {
-        write(passLocator, criteria);
+        writePageFactory(passLocator, criteria);
     }
 
     public void clickButtonLogin() {
-        clickElement(buttonLoginLocator);
+        clickElementPageFactory(buttonLoginLocator);
     }
 
+
     public String validateMessage() {
-        return textFromElement(message);
+        return textFromElementPageFactory(message);
     }
 
     public String loginTrue() {
-        return textFromElement(validLogin);
+        return textFromElementPageFactory(validLogin);
     }
 
 
