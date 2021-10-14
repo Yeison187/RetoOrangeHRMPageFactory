@@ -5,30 +5,48 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 public class MyInfoPage extends BasePage{
+    @FindBy(xpath = "//b[contains(text(),'My Info')]")
+    @CacheLookup
+    private WebElement MyInfoLocator;
 
+    @FindBy(xpath = "//a[contains(text(),'Dependents')]")
     @CacheLookup
-    private String MyInfoLocator = "//b[contains(text(),'My Info')]";
+    private WebElement dependentsLocator;
+
+    @FindBy(xpath = "//input[@id='btnAddDependent']")
     @CacheLookup
-    private String dependentsLocator = "//a[contains(text(),'Dependents')]";
+    private WebElement addDependentsLocator;
+
+    @FindBy(xpath = "//input[@id='dependent_name']")
     @CacheLookup
-    private String addDependentsLocator = "//input[@id='btnAddDependent']";
-    @CacheLookup
-    private String nameDependentsLocator = "//input[@id='dependent_name']";
-    @CacheLookup
+    private WebElement nameDependentsLocator;
+
     private String selectDependentsLocator = "//select[@id='dependent_relationshipType']";
-    @CacheLookup
-    private String dateBirthLocator = "//input[@id='dependent_dateOfBirth']";
-    @CacheLookup
-    private String  btnSaveDependentsLocator = "//input[@id='btnSaveDependent']";
 
+
+    @FindBy(xpath = "//input[@id='dependent_dateOfBirth']")
     @CacheLookup
-    private String addAttachsmentLocator = "//input[@id='btnAddAttachment']";
+    private WebElement dateBirthLocator;
+
+    @FindBy(xpath = "//input[@id='btnSaveDependent']")
     @CacheLookup
-    private String selectFileLocator = "//input[@id='ufile']";
+    private WebElement  btnSaveDependentsLocator;
+
+    @FindBy(xpath = "//input[@id='btnAddAttachment']")
     @CacheLookup
-    private String commentLocator = "//textarea[@id='txtAttDesc']";
+    private WebElement addAttachsmentLocator;
+
+    @FindBy(xpath = "//input[@id='ufile']" )
     @CacheLookup
-    private String uploadLocator = "//input[@id='btnSaveAttachment']";
+    private WebElement selectFileLocator;
+
+    @FindBy(xpath = "//textarea[@id='txtAttDesc']")
+    @CacheLookup
+    private WebElement commentLocator;
+
+    @FindBy(xpath = "//input[@id='btnSaveAttachment']" )
+    @CacheLookup
+    private WebElement uploadLocator;
 
     public MyInfoPage(){
         super(driver);
@@ -37,33 +55,31 @@ public class MyInfoPage extends BasePage{
 
     public void addDependency(){
         maxWindow();
-        clickElement(MyInfoLocator);
-        clickElement(dependentsLocator);
-        maxWindow();
-
+        clickElementPageFactory(MyInfoLocator);
+        clickElementPageFactory(dependentsLocator);
     }
 
     public  void writeFormAdd(String name,String dependents, String birth){
-        clickElement(addDependentsLocator);
-        write(nameDependentsLocator,name);
+        clickElementPageFactory(addDependentsLocator);
+        writePageFactory(nameDependentsLocator,name);
         selectFromDropdownByText(selectDependentsLocator,dependents);
-        write(dateBirthLocator,birth);
+        writePageFactory(dateBirthLocator,birth);
     }
 
     public void saveDependency(){
-        clickElement(btnSaveDependentsLocator);
+        clickElementPageFactory(btnSaveDependentsLocator);
     }
 
     public void newFile(){
-        clickElement(addAttachsmentLocator);
+        clickElementPageFactory(addAttachsmentLocator);
     }
 
     public void addFile(String ruta){
-        write(selectFileLocator,ruta);
+        writePageFactory(selectFileLocator,ruta);
     }
 
     public void uploadFile(String comentario){
-        write(commentLocator,comentario);
-        clickElement(uploadLocator);
+        writePageFactory(commentLocator,comentario);
+        clickElementPageFactory(uploadLocator);
     }
 }

@@ -101,6 +101,7 @@ public class BasePage {
         dropdown.selectByVisibleText(valueToSelect);
     }
 
+
     //Funcion para hacer un hoverOverElement (pasar el cursor sobre algo)
     public void hoverOverElement(String locator) {
         action.moveToElement(Find(locator));
