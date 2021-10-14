@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -26,6 +27,7 @@ public class BasePage {
     //Esto es para realizar una espera
     public BasePage(WebDriver driver) {
         BasePage.driver = driver;
+        PageFactory.initElements(driver,this);
         wait = new WebDriverWait(driver, 10);
     }
 

@@ -19,7 +19,7 @@ import pages.BasePage;
 public class Runner {
     @AfterClass
     public static void clearDriver() {
-        BasePage.closeBrowser();
+        //BasePage.closeBrowser();
     }
 
 }
