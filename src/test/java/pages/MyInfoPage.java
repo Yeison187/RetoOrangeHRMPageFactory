@@ -40,6 +40,10 @@ public class MyInfoPage extends BasePage{
     @CacheLookup
     private WebElement selectFileLocator;
 
+    @FindBy(xpath = "//input[@id='dependent_relationship']")
+    @CacheLookup
+    private  WebElement relationshipLocator;
+
     @FindBy(xpath = "//textarea[@id='txtAttDesc']")
     @CacheLookup
     private WebElement commentLocator;
@@ -63,6 +67,9 @@ public class MyInfoPage extends BasePage{
         clickElementPageFactory(addDependentsLocator);
         writePageFactory(nameDependentsLocator,name);
         selectFromDropdownByText(selectDependentsLocator,dependents);
+        if (elementIsDisplayed(relationshipLocator)){
+            writePageFactory(relationshipLocator,"Prueba");
+        }
         writePageFactory(dateBirthLocator,birth);
     }
 

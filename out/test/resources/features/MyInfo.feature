@@ -13,10 +13,11 @@ Feature: Como usuario quiero ingresar al modulo Mi Info
     And doy clic sobre el boton save
 
     Examples:
-      | name  | dependents | birth      |
-      | Maria | Child      | 2021-10-29 |
-      | Pedro | Child      | 2021-11-02 |
-      | Tomas | Child      | 2021-11-09 |
+      | name   | dependents | birth      |
+      | Maria  | Child      | 2021-10-29 |
+      | Pedro  | prueba      | 2021-11-02 |
+      | Tomas  | Child      | 2021-11-09 |
+      | Camila | Other      | 2021-11-06 |
 
 
   Scenario Outline: Adjuntar archivo

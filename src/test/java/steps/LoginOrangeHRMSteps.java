@@ -9,7 +9,7 @@ public class LoginOrangeHRMSteps {
     LoginOrangeHRMPage loginOrangeHRMPage = new LoginOrangeHRMPage();
 
     @Given("necesito ingresar al sistema OrangHRM")
-    public void necesito_ingresar_al_sistema_orang_hrm() {
+    public void ingresoSistema() {
         loginOrangeHRMPage.navigateToOrangeHrm();
     }
 

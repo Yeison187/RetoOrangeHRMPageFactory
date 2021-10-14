@@ -106,8 +106,8 @@ public class BasePage {
     }
 
     // verificar que un webElement esta en la page
-    public boolean elementIsDisplayed(String locator) {
-        return Find(locator).isDisplayed();
+    public boolean elementIsDisplayed(WebElement locator) {
+        return locator.isDisplayed();
     }
 
     public void maxWindow() {
