@@ -15,7 +15,7 @@ Feature: Como usuario quiero ingresar al modulo Mi Info
     Examples:
       | name   | dependents | birth      |
       | Maria  | Child      | 2021-10-29 |
-      | Pedro  | prueba      | 2021-11-02 |
+      | Pedro  | Other      | 2021-11-02 |
       | Tomas  | Child      | 2021-11-09 |
       | Camila | Other      | 2021-11-06 |
 
