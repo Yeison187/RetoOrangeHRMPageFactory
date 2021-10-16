@@ -1,7 +1,11 @@
 package steps;
 
 import io.cucumber.java.en.*;
+
+
 import pages.MyInfoPage;
+
+import java.net.URL;
 
 public class MyInfoSteps {
     MyInfoPage myInfoPage = new MyInfoPage();
@@ -28,8 +32,8 @@ public class MyInfoSteps {
     }
 
     @When("^doy clic en el boton add del area Assigned Attachments,adjunto el archivo (.+)$")
-    public void adjuntarArchivo(String ruta) {
-        myInfoPage.addFile(ruta);
+    public void adjuntarArchivo(String ruta){
+        myInfoPage.addFile(System.getProperty("user.dir")+ruta);
     }
 
     @When("^diligencio el campo comment (.+), doy clic sobre el boton save$")

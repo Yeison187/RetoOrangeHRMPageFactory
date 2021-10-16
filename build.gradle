@@ -17,6 +17,10 @@ dependencies {
 
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.0.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.0.0'
+
+    implementation group: 'com.google.guava', name: 'guava', version: '11.0.2'
+
+
 }
 
 test {

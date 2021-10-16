@@ -27,5 +27,5 @@ Feature: Como usuario quiero ingresar al modulo Mi Info
 
     Examples:
       | ruta                                                                                                                           | comentario          |
-      | C:\\Users\\YEISON\\Downloads\\automationtesting-trunk\\OrangeHrmPageFactory\\src\\test\\resources\\File\\Archivo_prueba_1.docx | Comentario prueba 1 |
-      | C:\\Users\\YEISON\\Downloads\\automationtesting-trunk\\OrangeHrmPageFactory\\src\\test\\resources\\File\\Archivo_prueba_2.docx | Comentario prueba 2 |
+      | \\src\\test\\resources\\File\\Archivo_prueba_1.docx | Comentario prueba 1 |
+      | \\src\\test\\resources\\File\\Archivo_prueba_2.docx | Comentario prueba 2 |
