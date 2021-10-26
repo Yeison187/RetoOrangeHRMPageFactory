@@ -8,7 +8,7 @@ Feature: Como usuario quiero ingresar al modulo Mi Info
     Then se debe mostra el mensaje: Successfully Saved
 
   Scenario Outline: Agregar nueva dependencia
-    Given necesito agregar una nueva dependencia
+    Given necesito agregar una nueva dependencia, ingreso con el usuario Admin, la contraseña admin123
     When doy clic en el boton add del area Assigned Dependents,diligencio todos los campos <name>,<dependents>,<birth>
     And doy clic sobre el boton save
 

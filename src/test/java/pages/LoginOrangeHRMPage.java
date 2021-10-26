@@ -30,8 +30,8 @@ public class LoginOrangeHRMPage extends BasePage {
         super(driver);
     }
 
-    public void navigateToOrangeHrm() {
-        navigateTo("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
+    public void navigateToOrangeHrm(String url) {
+        navigateTo(url);
     }
 
     public void writeEmail(String criteria) throws InterruptedException {
